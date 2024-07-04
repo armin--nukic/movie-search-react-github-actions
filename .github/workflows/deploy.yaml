@@ -24,6 +24,9 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Install gh-pages
+        run: npm install gh-pages --save-dev
+
       - name: Configure Git
         run: |
           git config --global user.email "armin--nukic@hotmail.com"
@@ -31,6 +34,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
-        run: gh-pages -d build --repo https://github.com/armin--nukic/movie-search-react-github-actions.git --remote origin
+        run: npx gh-pages -d build --repo https://github.com/armin--nukic/movie-search-react-github-actions.git --remote origin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
