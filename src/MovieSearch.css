@@ -1,0 +1,30 @@
+.movie-search-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.movie-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.movie-item {
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.movie-item:hover {
+  background-color: #f0f0f0;
+}
