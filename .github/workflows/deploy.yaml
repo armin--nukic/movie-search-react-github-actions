@@ -32,11 +32,10 @@ jobs:
           git config --global user.email "armin--nukic@hotmail.com"
           git config --global user.name "armin--nukic"
 
-      - name: Set up npm authentication
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
-        run: npx gh-pages -d build --repo https://github.com/armin--nukic/movie-search-react-github-actions.git --remote origin
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/armin--nukic/movie-search-react-github-actions.git
+          npx gh-pages -d build --repo https://github.com/armin--nukic/movie-search-react-github-actions.git --remote origin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
